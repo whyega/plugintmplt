@@ -18,7 +18,9 @@ class AbstractPlugin {
  protected:
   AbstractPlugin() = default;
   AbstractPlugin(const AbstractPlugin&) = delete;
+  AbstractPlugin(AbstractPlugin&&) = delete;
   AbstractPlugin& operator=(const AbstractPlugin&) = delete;
+  AbstractPlugin& operator=(AbstractPlugin&&) = delete;
 
  public:
   static T& GetInstance() {
