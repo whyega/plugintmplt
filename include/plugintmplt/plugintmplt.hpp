@@ -16,8 +16,7 @@
 template <class T>
 class AbstractPlugin {
  protected:
-  AbstractPlugin();
-  ~AbstractPlugin();
+  AbstractPlugin() = default;
 
  public:
   AbstractPlugin(const AbstractPlugin&) = delete;
