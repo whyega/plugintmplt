@@ -13,8 +13,21 @@
     return 1;                                                                 \
   }
 
+template <class T>
 class AbstractPlugin {
+ protected:
+  AbstractPlugin();
+  ~AbstractPlugin();
+
  public:
+  AbstractPlugin(const AbstractPlugin&) = delete;
+  AbstractPlugin& operator=(const AbstractPlugin&) = delete;
+
+  static T& GetInstance() {
+    static T instance;
+    return instance;
+  }
+
   virtual void OnLoad(void* handle) = 0;
   virtual void OnUnload() = 0;
 };
