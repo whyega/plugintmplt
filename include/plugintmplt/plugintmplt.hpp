@@ -13,7 +13,7 @@
     return 1;                                                                 \
   }
 
-class IPlugin {
+class AbstractPlugin {
  public:
   virtual void OnLoad(void* handle) = 0;
   virtual void OnUnload() = 0;
