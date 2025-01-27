@@ -17,11 +17,10 @@ template <class T>
 class AbstractPlugin {
  protected:
   AbstractPlugin() = default;
-
- public:
   AbstractPlugin(const AbstractPlugin&) = delete;
   AbstractPlugin& operator=(const AbstractPlugin&) = delete;
 
+ public:
   static T& GetInstance() {
     static T instance;
     return instance;
