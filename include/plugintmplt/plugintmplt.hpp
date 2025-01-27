@@ -4,7 +4,7 @@
   int __stdcall DllMain(void* handle, unsigned long reason, void* reserved) { \
     switch (reason) {                                                         \
       case 1:                                                                 \
-        p::GetInstance().OnLoad();                                            \
+        p::GetInstance().OnLoad(handle);                                      \
         break;                                                                \
       case 0:                                                                 \
         p::GetInstance().OnUnload();                                          \
