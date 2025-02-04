@@ -1,5 +1,8 @@
 #pragma once
 
+#include "detail/singleton.hpp"
+
+namespace plugintmplt {
 #define PLUGIN_ENTRY_POINT(p)                                                 \
   int __stdcall DllMain(void* handle, unsigned long reason, void* reserved) { \
     switch (reason) {                                                         \
@@ -14,20 +17,9 @@
   }
 
 template <class T>
-class AbstractPlugin {
- protected:
-  AbstractPlugin() = default;
-  AbstractPlugin(const AbstractPlugin&) = delete;
-  AbstractPlugin(AbstractPlugin&&) = delete;
-  AbstractPlugin& operator=(const AbstractPlugin&) = delete;
-  AbstractPlugin& operator=(AbstractPlugin&&) = delete;
-
+class AbstractPlugin : public detail::Singleton<T> {
  public:
-  static T& GetInstance() {
-    static T instance;
-    return instance;
-  }
-
   virtual void OnLoad(void* handle) = 0;
   virtual void OnUnload() = 0;
 };
+}  // namespace plugintmplt
