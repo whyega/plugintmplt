@@ -4,6 +4,6 @@
 
 class Plugin : public plugintmplt::AbstractPlugin<Plugin> {
  public:
-  void OnLoad(void* handle) override;
-  void OnUnload() override;
+  void OnAttach(void* handle) override;
+  void OnDetach() override;
 };

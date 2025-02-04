@@ -2,9 +2,9 @@
 
 #include <iostream>
 
-void Plugin::OnLoad(void* handle) {
+void Plugin::OnAttach(void* handle) {
   std::cout << "Hello, world!" << std::endl;
   ;
 }
 
-void Plugin::OnUnload() {}
+void Plugin::OnDetach() {}

@@ -7,10 +7,10 @@ namespace plugintmplt {
   int __stdcall DllMain(void* handle, unsigned long reason, void* reserved) { \
     switch (reason) {                                                         \
       case 1:                                                                 \
-        p::GetInstance().OnLoad(handle);                                      \
+        p::GetInstance().OnAttach(handle);                                    \
         break;                                                                \
       case 0:                                                                 \
-        p::GetInstance().OnUnload();                                          \
+        p::GetInstance().OnDetach();                                          \
         break;                                                                \
     }                                                                         \
     return 1;                                                                 \
@@ -19,7 +19,7 @@ namespace plugintmplt {
 template <class T>
 class AbstractPlugin : public detail::Singleton<T> {
  public:
-  virtual void OnLoad(void* handle) = 0;
-  virtual void OnUnload() = 0;
+  virtual void OnAttach(void* handle) = 0;
+  virtual void OnDetach() = 0;
 };
 }  // namespace plugintmplt
