@@ -5,7 +5,6 @@ set(BUILD_EXAMPLES ON)
 
 if(BUILD_EXAMPLES)
     add_subdirectory(examples)
-    message(ADD PIZda)
 endif()
 
 
